@@ -9,4 +9,7 @@ Or you can install these packages using command line: open terminal window and r
 ```
 python -m pip install -r requirements.txt
 ```
-<img src="https://res.cloudinary.com/dh44cxhsn/video/upload/v1719868108/Favorite_movies_ckoolj.mp4"/>
+<br/>
+
+Video Demo:
+https://res.cloudinary.com/dh44cxhsn/video/upload/v1719868108/Favorite_movies_ckoolj.mp4"
