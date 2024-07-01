@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Movie
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-4">My top 10 Movies</h1>
+    <hr style="width:5%; border:2px solid blue; margin-top: 20px; margin-bottom: 3rem">
+    <div class="container d-flex flex-column align-items-center justify-content-center border p-4">
+        {% if movies %}
+        {% for movie in movies %}
+
+        <div class="box">
+            <div class="body">
+                <div class="imgContainer">
+                    <div>
+                        <img src={{movie.img_url}} alt="">
+                        <div class="rankingContainer">
+                            <h1 class="ranking">{{movie.ranking}}</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="content d-flex flex-column align-items-center justify-content-center">
+                    <div class="infoContainer d-flex flex-column align-items-center justify-content-center">
+                        <h1 class="fs-5">{{movie.title}}<span>({{movie.year}})</span></h1>
+                        <p>{{movie.rating}}⭐</p>
+                        <blockquote>"{{movie.review}}"</blockquote>
+                        <p class="fs-6">{{movie.description}}</p>
+                        <div class="d-flex gap-2">
+                            <a class="btn btn-primary" href="{{url_for('edit', movie_id=movie.id)}}" role="button">Update</a>
+                            <a class="btn btn-danger" href="{{url_for('delete', movie_id=movie.id)}}"
+                               role="button">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+        {% else %}
+        <h2>There is no movies</h2>
+        {% endif %}
+        <a class="btn btn-primary" href="{{url_for('select')}}">Add movie</a>
+
+    </div>
+
+
+</div>
+{% endblock %}

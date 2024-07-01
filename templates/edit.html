@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Edit Movie
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Update Rating and Review</h1>
+
+    <div class="row justify-content-center p-4">
+        <div class="col-md-6 col-lg-4  border p-4">
+            <form action="{{ url_for('edit', movie_id=movie_id) }}" method="POST" novalidate>
+                {{ form.csrf_token }}
+                <div class="mb-3">
+                    {{ form.rating.label(class="form-label") }}
+                    {{ form.rating(class="form-control") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.review.label(class="form-label") }}
+                    {{ form.review(class="form-control") }}
+                </div>
+                <div class="d-grid">
+                    {{ form.done(class="btn btn-primary") }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

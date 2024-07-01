@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    {% block styles %}
+    {{ bootstrap.load_css() }}
+    {% endblock %}
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet"/>
+</head>
+<body>
+
+{% block content %}{% endblock %}
+{{ bootstrap.load_js() }}
+</body>
+</html>
